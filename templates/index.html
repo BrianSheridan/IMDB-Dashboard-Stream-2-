@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movies</title>
+  <link rel="stylesheet" href="{{ url_for ('static',
+    filename='lib/css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{ url_for ('static',
+    filename='lib/css/keen-dashboards.css')}}">
+  <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
+  <link rel="stylesheet" href="{{url_for ('static', filename='lib/css/introjs.css')}}" />
+  <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
+</head>
+
+<body class="application"> 
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-step="1" data-intro="The description that you want" style="font-weight: normal" data-position="right">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="./">IMDB Dashboard</a>
+      </div>
+      <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+          <!-- Bar Chart -->
+          <div class="col-sm-8">
+            <div class="chart-wrapper">
+              <div class="chart-title"> Number of Movies per Genre</div>
+                <div id="gen-count-chart"></div>
+              </div>
+          </div>
+      
+          <!-- Bar Chart -->
+
+          
+        
+      <!-- Genre Pie -->
+          <div class="col-sm-4">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Genre Pie Chart 
+              </div>
+              <div class="chart-stage">
+                <div id="gen-pie-chart"></div>
+              </div>
+            </div>
+          </div>
+        
+      <!-- Genre Pie -->
+      
+      <div class="row">
+      <!-- Rating Pie -->
+          <div class="col-sm-4">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+               Ratings Pie Chart 
+              </div>
+              <div class="chart-stage">
+                <div id="rate-pie-chart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      <!-- Rating Pie -->
+
+      <!-- Budget Pie -->
+         <div class="row">
+          <div class="col-sm-4">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+               Budget Pie Chart 
+              </div>
+              <div class="chart-stage">
+                <div id="budget-pie-chart"></div>
+              </div>
+            </div>
+          </div>
+    
+  
+   
+      <!-- Budget Pie -->
+
+
+          <!-- Bar Chart -->
+          <div class="col-sm-8">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Average IMDB Rating per Year
+              </div>
+                <div id="year-count-chart"></div>
+              </div>
+            </div>
+          </div>
+
+        
+    <div class="row">
+      <div class="col-sm-6">
+          <!-- Bar Chart -->
+          <div class="col-sm-12">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Average Budget for each Genre
+              </div>
+                <div id="genre-count-chart"></div>
+              </div>
+            </div>
+          </div>
+      
+   
+
+            
+      <div class="col-sm-6">
+          <!-- Bar Chart -->
+          <div class="col-sm-12">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Average Gross for each Genre
+              </div>
+                <div id="gross-count-chart"></div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="col-sm-6">
+          <!-- Bar Chart -->
+          <div class="col-sm-12">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Composite Chart
+              </div>
+                <div id="composite-chart"></div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="row">
+          <div class="col-sm-4">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+               Profit/Loss Pie Chart 
+              </div>
+              <div class="chart-stage">
+                <div id="profitloss-pie-chart"></div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+      
+  <p class="small text-muted"> Data viz &#9829; from Code Institute</p>
+  <script src="{{ url_for ('static', filename='lib/js/jquery.min.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/bootstrap.min.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/crossfilter.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/d3.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/dc.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/queue.js')}}"></script>
+  <script src="{{ url_for ('static', filename='lib/js/keen.min.js')}}"></script>
+  <script src="{{ url_for ('static', filename='js/graph.js')}}"></script>
+  <script src="{{url_for ('static', filename='lib/js/intro.js')}}" type="text/javascript"></script>
+</body>
+</html>
