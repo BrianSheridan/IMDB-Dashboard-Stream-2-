@@ -49,12 +49,14 @@ function makeGraphs(error, movieJSON) {
         return d["title_year"];
     });
 
-     var profitLossPie = ndx.dimension(function (d) {
-         if(d['gross'] >= 200)
-                return 'Big';
-            else
-                return 'Small';
+    var profitLossDim = ndx.dimension(function (d) {
+        if (+d['budget'] > +d['gross'])
+            return 'Loss';
+        else
+            return 'Profit';
     });
+
+    var profitLossGroup = profitLossDim.group();
 
     
 
@@ -64,7 +66,7 @@ function makeGraphs(error, movieJSON) {
     var pieMoviesByGenres = genresPieDim.group();
     var numMoviesByContentRating = ratingPieDim.group();
     var numberMoviesByBudget = budgetPieDim.group();
-    var pieGroup = profitLossPie.group(); 
+
 
 
 
@@ -196,7 +198,7 @@ function makeGraphs(error, movieJSON) {
    var genreByBudgetChart = dc.lineChart('#genre-count-chart')
    var genreByGrossChart = dc.lineChart('#gross-count-chart')
    var compositeChart = dc.compositeChart('#composite-chart');
-   var profitLossChart = dc.pieChart("profitloss-pie-chart");
+   var profitLossChart = dc.pieChart("#profitloss-pie-chart");
 
 
     genresbar
@@ -216,20 +218,25 @@ function makeGraphs(error, movieJSON) {
     compositeChart
         .width(990)
         .height(200)
+        .elasticY(true)
+        .dimension(genresDim)
+        .group(rd_budgetByYear)
         .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
         .yAxisLabel("The Y Axis")
         .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
         .renderHorizontalGridLines(true)
+        ._rangeBandPadding(1)
         .compose([
-            dc.barChart(compositeChart)
-                .dimension(genresDim)
+            dc.lineChart(compositeChart)
                 .colors('green')
-                .group(rd_budgetByYear, 'budget'),
-            dc.barChart(compositeChart)
-                .dimension(genresDim)
+                .group(rd_budgetByYear, 'Budget'),
+            dc.lineChart(compositeChart)
                 .colors('red')
-                .group(rd_grossByYear, 'gross'),
+                .group(rd_grossByYear, 'Gross')
         ])
+        .brushOn(false)
+        .render();
     
     genrePie
        .height(320)
@@ -252,8 +259,8 @@ function makeGraphs(error, movieJSON) {
        .radius(150)
        .innerRadius(40)
        .transitionDuration(1500)
-       .dimension(budgetPieDim)
-       .group(numberMoviesByBudget);
+       .dimension(profitLossDim)
+       .group(profitLossGroup);
 
     moviesByYearChart
        .width(1000)
@@ -312,13 +319,8 @@ function makeGraphs(error, movieJSON) {
        .radius(150)
        .innerRadius(40)
        .transitionDuration(1500)
-       .dimension(profitLossPie)
-       .group(pieGroup);
+       .dimension(profitLossDim)
+       .group(profitLossGroup);
 
-
-
-    
-
-  
    dc.renderAll();
 }
