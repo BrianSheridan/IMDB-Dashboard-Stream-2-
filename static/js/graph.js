@@ -41,9 +41,7 @@ function makeGraphs(error, movieJSON) {
         return d["content_rating"];
     });
 
-    var budgetPieDim = ndx.dimension(function (d) {
-        return d["budget"];
-    });
+    
 
     var yearDim = ndx.dimension(function (d) {
         return d["title_year"];
@@ -65,8 +63,7 @@ function makeGraphs(error, movieJSON) {
     var numMoviesByGenres = genresDim.group();
     var pieMoviesByGenres = genresPieDim.group();
     var numMoviesByContentRating = ratingPieDim.group();
-    var numberMoviesByBudget = budgetPieDim.group();
-
+    
 
 
 
@@ -122,53 +119,8 @@ function makeGraphs(error, movieJSON) {
         }
     );
 
-
-   var averageBudgetByGenre = countDim.group().reduce(
-        function (p, v) {
-            ++p.count;
-            p.total += v.budget;
-            p.average = p.total / p.count;
-            return p;
-        },
-        function (p, v) {
-            --p.count;
-            if(p.count == 0) {
-                p.total = 0;
-                p.average = 0;
-            } else {
-                p.total -= v.budget;
-                p.average = p.total / p.count;
-            };
-            return p;
-        },
-        function () {
-            return {count: 0, total: 0, average: 0};
-        }
-    );
-
-   var averageGrossByGenre = countDim.group().reduce(
-        function (p, v) {
-            ++p.count;
-            p.total += v.gross;
-            p.average = p.total / p.count;
-            return p;
-        },
-        function (p, v) {
-            --p.count;
-            if(p.count == 0) {
-                p.total = 0;
-                p.average = 0;
-            } else {
-                p.total -= v.gross;
-                p.average = p.total / p.count;
-            };
-            return p;
-        },
-        function () {
-            return {count: 0, total: 0, average: 0};
-        }
-    );
-
+    
+   
     
 
         
@@ -193,17 +145,14 @@ function makeGraphs(error, movieJSON) {
    var genresbar = dc.barChart("#gen-count-chart");
    var genrePie = dc.pieChart("#gen-pie-chart")
    var ratePie = dc.pieChart("#rate-pie-chart")
-   var budgetPie =dc.pieChart("#budget-pie-chart")
    var moviesByYearChart = dc.lineChart('#year-count-chart')
-   var genreByBudgetChart = dc.lineChart('#genre-count-chart')
-   var genreByGrossChart = dc.lineChart('#gross-count-chart')
    var compositeChart = dc.compositeChart('#composite-chart');
    var profitLossChart = dc.pieChart("#profitloss-pie-chart");
 
 
     genresbar
        .width(800)
-       .height(400)
+       .height(300)
        .margins({top: 10, right: 50, bottom: 30, left: 50})
        .dimension(genresDim)
        .group(numMoviesByGenres)
@@ -217,7 +166,7 @@ function makeGraphs(error, movieJSON) {
 
     compositeChart
         .width(990)
-        .height(200)
+        .height(300)
         .elasticY(true)
         .dimension(genresDim)
         .group(rd_budgetByYear)
@@ -239,7 +188,7 @@ function makeGraphs(error, movieJSON) {
         .render();
     
     genrePie
-       .height(320)
+       .height(300)
        .radius(150)
        .innerRadius(40)
        .transitionDuration(1500)
@@ -247,20 +196,14 @@ function makeGraphs(error, movieJSON) {
        .group(pieMoviesByGenres);
 
     ratePie
-       .height(320)
+       .height(300)
        .radius(150)
        .innerRadius(40)
        .transitionDuration(1500)
        .dimension(ratingPieDim)
        .group(numMoviesByContentRating);
 
-    budgetPie
-      .height(320)
-       .radius(150)
-       .innerRadius(40)
-       .transitionDuration(1500)
-       .dimension(profitLossDim)
-       .group(profitLossGroup);
+    
 
     moviesByYearChart
        .width(1000)
@@ -282,37 +225,7 @@ function makeGraphs(error, movieJSON) {
     //    .xAxis().tickFormat(function(y){return y * 1});
 
 
-    genreByBudgetChart
-        .width(800)
-        .height(300)
-        .margins({top: 10, right: 50, bottom: 30, left: 50})
-        .dimension(budgetBarDim)
-        .group(averageBudgetByGenre)
-        .valueAccessor(function(d){
-            return d.value.average;
-        })
-        .transitionDuration(500)
-        .x(d3.scale.ordinal())
-        .xUnits(dc.units.ordinal)
-        .elasticY(true)
-        .xAxisLabel("Average Budget per Genre") 
-        .yAxis().ticks(4);
-
-    genreByGrossChart
-        .width(800)
-        .height(300)
-        .margins({top: 10, right: 50, bottom: 30, left: 50})
-        .dimension(grossBarDim)
-        .group(averageGrossByGenre)
-        .valueAccessor(function(d){
-            return d.value.average;
-        })
-        .transitionDuration(500)
-        .x(d3.scale.ordinal())
-        .xUnits(dc.units.ordinal)
-        .elasticY(true)
-        .xAxisLabel("Average Gross per Genre") 
-        .yAxis().ticks(4);
+    
 
     profitLossChart
        .height(320)

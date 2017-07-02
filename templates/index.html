@@ -7,19 +7,36 @@
   <link rel="stylesheet" href="{{ url_for ('static',
     filename='lib/css/keen-dashboards.css')}}">
   <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/keen-dashboards.css" />
   <link rel="stylesheet" href="{{url_for ('static', filename='lib/css/introjs.css')}}" />
   <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
 </head>
 
-<body class="application"> 
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-step="1" data-intro="The description that you want" style="font-weight: normal" data-position="right">
-    <div class="container-fluid">
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    
+      <body class="application">
       <div class="navbar-header">
-        <a class="navbar-brand" href="./">IMDB Dashboard</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">IMDB DashBoard</a>
       </div>
-      <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li><a href="http://www.imdb.com/">IMDB Home</a></li>
+          <li><a href="http://www.imdb.com/chart/top?ref_=nv_mv_250_6">Top rated Movies</a></li>
+          <li><a href="http://www.imdb.com/chart/moviemeter?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=3021371422&pf_rd_r=1RNWKTQNX4STVFZSF8AP&pf_rd_s=right-4&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_ql_2">Most popular Movies</a></li>
+          <li><a href="http://www.imdb.com/news/top?ref_=nv_tp_nw_1">Top News</a></li><li><a href="./">Reset All</a></li>
+        </ul>
+      </div>
     </div>
   </div>
+
+
   <div class="container-fluid">
 
 
@@ -29,9 +46,12 @@
           <!-- Bar Chart -->
           <div class="col-sm-8">
             <div class="chart-wrapper">
-              <div class="chart-title"> Number of Movies per Genre</div>
+              <div class="chart-title"> Number of Movies per Genre
+              </div>
+              <div class="chart-stage">
                 <div id="gen-count-chart"></div>
               </div>
+            </div>
           </div>
       
           <!-- Bar Chart -->
@@ -45,15 +65,29 @@
                 Genre Pie Chart 
               </div>
               <div class="chart-stage">
-                <div id="gen-pie-chart"></div>
+              <div id="gen-pie-chart"></div>
               </div>
             </div>
           </div>
+    </div>
         
       <!-- Genre Pie -->
+
+       <!-- Bar Chart -->
+       <div class="row">
+          <div class="col-sm-8">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Average IMDB Rating per Year
+              </div>
+              <div class="chart-stage">
+                <div id="year-count-chart"></div>
+              </div>
+            </div>
+            </div>
+          
       
-      <div class="row">
-      <!-- Rating Pie -->
+        <!-- Rating Pie -->
           <div class="col-sm-4">
             <div class="chart-wrapper">
               <div class="chart-title">
@@ -64,94 +98,43 @@
               </div>
             </div>
           </div>
-        </div>
-        </div>
+       </div>
+      
       <!-- Rating Pie -->
 
-      <!-- Budget Pie -->
-         <div class="row">
-          <div class="col-sm-4">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-               Budget Pie Chart 
-              </div>
-              <div class="chart-stage">
-                <div id="budget-pie-chart"></div>
-              </div>
-            </div>
-          </div>
-    
-  
-   
-      <!-- Budget Pie -->
-
-
-          <!-- Bar Chart -->
-          <div class="col-sm-8">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Average IMDB Rating per Year
-              </div>
-                <div id="year-count-chart"></div>
-              </div>
-            </div>
-          </div>
-
-        
-    <div class="row">
-      <div class="col-sm-6">
-          <!-- Bar Chart -->
-          <div class="col-sm-12">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Average Budget for each Genre
-              </div>
-                <div id="genre-count-chart"></div>
-              </div>
-            </div>
-          </div>
-      
-   
-
-            
-      <div class="col-sm-6">
-          <!-- Bar Chart -->
-          <div class="col-sm-12">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-                Average Gross for each Genre
-              </div>
-                <div id="gross-count-chart"></div>
-              </div>
-            </div>
-          </div>
-    </div>
-
-    <div class="col-sm-6">
-          <!-- Bar Chart -->
-          <div class="col-sm-12">
-            <div class="chart-wrapper">
-              <div class="chart-title">
+     
+      <div class="row">
+            <!-- Bar Chart -->
+              <div class="col-sm-8">
+                 <div class="chart-wrapper">
+                 <div class="chart-title">
                 Composite Chart
               </div>
+              <div class ="chart-stage">
                 <div id="composite-chart"></div>
               </div>
             </div>
           </div>
-    </div>
+          
 
-    <div class="row">
-          <div class="col-sm-4">
-            <div class="chart-wrapper">
-              <div class="chart-title">
-               Profit/Loss Pie Chart 
-              </div>
-              <div class="chart-stage">
-                <div id="profitloss-pie-chart"></div>
+         
+
+
+          
+            <div class="col-sm-4">
+              <div class="chart-wrapper">
+                <div class="chart-title">
+                Profit/Loss Pie Chart 
+                </div>
+                <div class="chart-stage">
+                  <div id="profitloss-pie-chart"></div>
+                </div>
               </div>
             </div>
-          </div>
-    </div>
+      </div>
+  </div>
+
+    
 
 
 
