@@ -77,3 +77,15 @@ body.application hr {
   width: 700px;
   height: 305px;
 }
+
+#profitloss-pie-chart{
+  position: center;
+  width: 700px;
+  height: 305px;
+}
+
+#img-responsive{
+  position: right;
+  line-height: 50%
+}
+

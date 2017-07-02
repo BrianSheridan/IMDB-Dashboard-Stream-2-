@@ -238,7 +238,8 @@ function makeGraphs(error, movieJSON) {
        .innerRadius(40)
        .transitionDuration(1500)
        .dimension(profitLossDim)
-       .group(profitLossGroup);
+       .group(profitLossGroup)
+       .legend(dc.legend().x(10).y(10).gap(6));
 
    dc.renderAll();
 }
