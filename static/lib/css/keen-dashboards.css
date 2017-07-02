@@ -66,3 +66,14 @@ body.application hr {
   padding: 8px 10px 5px;
 }
 
+#gen-pie-chart{
+  position: center;
+  width: 700px;
+  height: 305px;
+}
+
+#rate-pie-chart{
+  position: center;
+  width: 700px;
+  height: 305px;
+}

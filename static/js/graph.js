@@ -193,7 +193,8 @@ function makeGraphs(error, movieJSON) {
        .innerRadius(40)
        .transitionDuration(1500)
        .dimension(genresPieDim)
-       .group(pieMoviesByGenres);
+       .group(pieMoviesByGenres)
+       .legend(dc.legend().x(10).y(10).gap(10));
 
     ratePie
        .height(300)
@@ -201,7 +202,11 @@ function makeGraphs(error, movieJSON) {
        .innerRadius(40)
        .transitionDuration(1500)
        .dimension(ratingPieDim)
-       .group(numMoviesByContentRating);
+       .group(numMoviesByContentRating)
+       .legend(dc.legend().x(10).y(10).gap(6));
+       
+       
+       
 
     
 
