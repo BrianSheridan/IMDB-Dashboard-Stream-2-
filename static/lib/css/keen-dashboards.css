@@ -4,12 +4,17 @@
  */
 
 body.application {
-  background: #f2f2f2;
+  background: cover;
   padding: 60px 20px 0;
+  background-image:  url("../../../static/images/IMDB.png");
+  margin-top: 220px;
 }
 body.application > .container-fluid {
   padding-left: 0px;
   padding-right: 0px;
+  
+    
+    
 }
 body.application div[class^="col-"] {
   padding-left: 5px;
@@ -28,14 +33,18 @@ body.application hr {
 
 
 .navbar-inverse {
-  background-color: #3d4a57;
-  border-color: #333;
+  background-color: black;
+  border-color: white;
+  
 }
 .navbar-inverse .navbar-nav > li > a,
 .navbar a.navbar-brand {
-  color: #fbfbfb;
-  text-decoration: none;
-}
+  color: yellow;
+  font-family: 'Cinzel', serif;
+  text-align: right;
+  height: 250px;
+  }
+
 
 .chart-wrapper {
   background: #fff;
@@ -84,8 +93,8 @@ body.application hr {
   height: 305px;
 }
 
-#img-responsive{
-  position: right;
-  line-height: 50%
-}
-
+ #year-count-chart .x.axis text {
+    text-anchor: end !important;
+    transform: rotate(-45deg);
+    }
+ 

@@ -6,10 +6,6 @@
    font-size: 60px;
 }
 
- #year-count-chart .x.axis text {
-    text-anchor: end !important;
-    transform: rotate(-45deg);
-    }
 
 
 
@@ -23,7 +19,7 @@
 
 
 .navbar-brand{
-    text-align: center;
+   color: yellow; 
 }
 
 
