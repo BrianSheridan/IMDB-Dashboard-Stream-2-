@@ -4,9 +4,9 @@
  */
 
 body.application {
-  background: cover;
   padding: 60px 20px 0;
-  background-image:  url("../../../static/images/IMDB.png");
+  background-image:  url("../../../static/images/sky.jpg");
+  background-size: cover;
   margin-top: 195px;
 }
 body.application > .container-fluid {
@@ -48,25 +48,32 @@ body.application hr {
   text-align: right;
   height: 250px;
   font-size: 170%;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-shadow: 0px 0 black, 0 0px black, 0px 0 black, 0 0px black;
   }
 
   
 
 
 .chart-wrapper {
-  background: #fff;
+  background: black;
   border: 1px solid #e2e2e2;
   border-radius: 3px;
   margin-bottom: 10px;
+  color: black;
 }
 .chart-wrapper .chart-title {
-  border-bottom: 1px solid #d7d7d7;
-  color: #666;
+  border-bottom: 1px solid black;
+  color: yellow;
   font-size: 14px;
   font-weight: 200;
   padding: 7px 10px 4px;
 }
+
+.chart-stage{
+  background-color: #ccffcc
+}
+
+
 
 .chart-wrapper .chart-stage {
   /*min-height: 240px;*/
