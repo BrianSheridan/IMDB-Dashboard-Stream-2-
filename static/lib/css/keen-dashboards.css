@@ -71,7 +71,7 @@ body.application hr {
 }
 
 .chart-stage{
-  background-color: white;
+  background-color: #99ff99;
 }
 
 .chart-stage1{
@@ -97,6 +97,11 @@ body.application hr {
   background-image:  url("../../../static/images/pulp.jpg");
   background-size: cover;
 }
+
+
+
+
+
 
 
 
