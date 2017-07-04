@@ -13,7 +13,7 @@ COLLECTION_NAME ='projects'
 
 MONGODB_URI = os.environ.get('MONGODB_URI')
 DBS_NAME = os.environ.get('MONGODB_URI','Movie')
-MONGODB_URI = os.environ.get('MONGODB_URI')
+COLLECTION_NAME = os.environ.get('MONGO_COLLECTION_NAME', 'projects')
 
 @app.route("/")
 def index():
