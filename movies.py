@@ -12,7 +12,7 @@ app = Flask (__name__)
 #COLLECTION_NAME ='projects'
 
 MONGODB_URI = os.environ.get('MONGODB_URI')
-DBS_NAME = os.environ.get('MONGODB_URI','Movie')
+DBS_NAME = os.environ.get('MONGO_DB_NAME','Movie')
 COLLECTION_NAME = os.environ.get('MONGO_COLLECTION_NAME', 'projects')
 
 @app.route("/")
