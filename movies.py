@@ -2,13 +2,18 @@ from flask import Flask
 from flask import render_template 
 from pymongo import MongoClient
 import json
+import os
 
 app = Flask (__name__)
 
-MONGODB_HOST = 'localhost'
-MONGODB_PORT = 27017
-DBS_NAME = 'Movie'
-COLLECTION_NAME ='projects'
+#MONGODB_HOST = 'localhost'
+#ONGODB_PORT = 27017
+#DBS_NAME = 'Movie'
+#COLLECTION_NAME ='projects'
+
+MONGODB_URI = os.environ.get('MONGODB_URI')
+DBS_NAME = os.environ.get('MONGODB_URI','Movie')
+MONGODB_URI = os.environ.get('MONGODB_URI')
 
 @app.route("/")
 def index():
@@ -16,6 +21,8 @@ def index():
     A Flask view to serve the main dashboard page.
     """
     return render_template("index.html")
+
+
 
 @app.route("/data")
 def donor_projects():

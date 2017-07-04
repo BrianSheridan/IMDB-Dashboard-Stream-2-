@@ -36,7 +36,7 @@ body.application hr {
   background-image:  url("../../../static/images/LOTR.jpg");
   background-size: cover;
   background-position-x: 0px;
-  background-position-y: 880px;
+  background-position-y: 1180px;
   border: 10px border-style color black;
   
   
@@ -71,7 +71,7 @@ body.application hr {
 }
 
 .chart-stage{
-  background-color: #ccffcc
+  background-color: white;
 }
 
 .chart-stage1{
