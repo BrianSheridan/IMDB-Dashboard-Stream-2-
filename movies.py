@@ -9,7 +9,7 @@ app = Flask (__name__)
 #MONGODB_HOST = 'localhost'
 #ONGODB_PORT = 27017
 #DBS_NAME = 'Movie'
-#COLLECTION_NAME ='projects'
+COLLECTION_NAME ='projects'
 
 MONGODB_URI = os.environ.get('MONGODB_URI')
 DBS_NAME = os.environ.get('MONGODB_URI','Movie')
@@ -40,7 +40,7 @@ def donor_projects():
  
     # Open a connection to MongoDB using a with statement such that the
     # connection will be closed as soon as we exit the with statement
-    with MongoClient(MONGODB_HOST, MONGODB_PORT) as conn:
+    with MongoClient(MONGODB_URI) as conn:
         # Define which collection we wish to access
         collection = conn[DBS_NAME][COLLECTION_NAME]
         # Retrieve a result set only with the fields defined in FIELDS
