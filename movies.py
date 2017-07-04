@@ -9,7 +9,7 @@ app = Flask (__name__)
 #MONGODB_HOST = 'localhost'
 #ONGODB_PORT = 27017
 #DBS_NAME = 'Movie'
-COLLECTION_NAME ='projects'
+#COLLECTION_NAME ='projects'
 
 MONGODB_URI = os.environ.get('MONGODB_URI')
 DBS_NAME = os.environ.get('MONGODB_URI','Movie')
