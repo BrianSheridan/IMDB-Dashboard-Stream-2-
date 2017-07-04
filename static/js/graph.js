@@ -172,7 +172,6 @@ function makeGraphs(error, movieJSON) {
         .group(rd_budgetByYear)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
-        .yAxisLabel("The Y Axis")
         .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
         .renderHorizontalGridLines(true)
         ._rangeBandPadding(1)

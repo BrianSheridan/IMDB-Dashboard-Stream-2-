@@ -34,10 +34,11 @@ body.application hr {
 
 .navbar-inverse {
   background-image:  url("../../../static/images/LOTR.jpg");
-  background-size: cover;
-  background-position-x: 0px;
-  background-position-y: 1180px;
+  /*background-position-x: 0px;*/
+  /*background-position-y: 1180px;*/
   border: 10px border-style color black;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   
   
 }
@@ -96,6 +97,10 @@ body.application hr {
   position: relative;
   background-image:  url("../../../static/images/pulp.jpg");
   background-size: cover;
+}
+
+.xAxisLabel{
+  font-family: 'Cinzel', serif;
 }
 
 
