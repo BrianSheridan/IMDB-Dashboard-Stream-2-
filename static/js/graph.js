@@ -72,6 +72,7 @@ function makeGraphs(error, movieJSON) {
         return +d['budget'];
     });  
 
+   // Average Gross for each Genre
    var averageGrossByGenre = genreBarDim.group().reduce(
         function (p, v) {
             ++p.count;

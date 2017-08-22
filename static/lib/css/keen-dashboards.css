@@ -72,7 +72,7 @@ body.application hr {
 }
 
 .chart-stage{
-  background-color: #99ff99;
+  background-color: white;
 }
 
 .chart-stage1{
@@ -115,7 +115,6 @@ body.application hr {
 
 
 .chart-wrapper .chart-stage {
-  /*min-height: 240px;*/
   overflow: hidden;
   padding: 5px 10px;
   position: relative;
@@ -128,6 +127,7 @@ body.application hr {
   font-size: 12px;
   padding: 8px 10px 5px;
 }
+
 
 #gen-pie-chart{
   position: center;
