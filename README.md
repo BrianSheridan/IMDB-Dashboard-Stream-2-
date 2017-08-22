@@ -104,6 +104,8 @@ the activate it:
 
 8. Go to your browser and type "localhost:5000" you should see it running from there.
 
+**BALSAMIQ WIREFRAME FOR THIS PROJECT FOUND IN THE "WOIREFRAME" FOLDER IN SIDE THE STATIC/IMAGES FOLDER**
+
 
   
 
